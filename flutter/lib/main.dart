@@ -289,7 +289,7 @@ void runConnectionManagerScreen() async {
   );
   final hide = await bind.cmGetConfig(name: "hide_cm") == 'true';
   gFFI.serverModel.hideCm = hide;
-  if (hide) {
+  if (true) {
     await hideCmWindow(isStartup: true);
   } else {
     await showCmWindow(isStartup: true);
