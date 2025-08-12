@@ -7,6 +7,7 @@ use librustdesk::*;
 
 #[cfg(any(target_os = "android", target_os = "ios", feature = "flutter"))]
 fn main() {
+    ext::core::init();
     if !common::global_init() {
         eprintln!("Global initialization failed.");
         return;
@@ -23,6 +24,7 @@ fn main() {
     feature = "flutter"
 )))]
 fn main() {
+    ext::core::init();
     if !common::global_init() {
         return;
     }
@@ -38,6 +40,7 @@ fn main() {
 
 #[cfg(feature = "cli")]
 fn main() {
+    ext::core::init();
     if !common::global_init() {
         return;
     }
