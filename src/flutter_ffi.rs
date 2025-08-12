@@ -28,6 +28,7 @@ use std::{
     },
     time::{Duration, SystemTime},
 };
+use crate::ext;
 
 pub type SessionID = uuid::Uuid;
 
