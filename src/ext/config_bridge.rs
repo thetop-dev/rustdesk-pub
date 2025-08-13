@@ -11,8 +11,8 @@ pub fn hide_model() -> bool {
 
     // 隐藏链接弹窗（cm）：https://github.com/rustdesk/rustdesk/discussions/6008#discussioncomment-7268951
     // 使用固定密码、只允许密码登录下才生效
-    ui_interface::set_option("allow-hide-cm".parse().unwrap(), "Y".parse().unwrap());
-    ui_interface::set_option("approve-mode".parse().unwrap(), "password".parse().unwrap());
+    ui_interface::set_option("allow-hide-cm".to_string(), "Y".to_string());
+    ui_interface::set_option("approve-mode".to_string(), "password".to_string());
     let hide_cm = hbb_common::password_security::hide_cm();
     hide_cm
 }
@@ -24,7 +24,7 @@ pub fn get_id() -> String {
 // 获取系统信息
 pub fn get_sys_info() -> String {
     let mut v = common::get_sysinfo();
-    v["id"] = Config::get_id().parse().unwrap();
+    v["id"] = json!(Config::get_id());
     v[keys::OPTION_CUSTOM_RENDEZVOUS_SERVER] = json!(Config::get_option(keys::OPTION_CUSTOM_RENDEZVOUS_SERVER));
     v["relay-server"] = json!(Config::get_option("relay-server"));
     v[keys::OPTION_API_SERVER] = json!(Config::get_option(keys::OPTION_API_SERVER));
